@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:anypoint-mq="http://www.mulesoft.org/schema/mule/anypoint-mq" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/mule/anypoint-mq/current/mule-anypoint-mq.xsd">
+
+	<flow name="publish-message-flow" doc:id="676ae6a4-d83d-4024-9769-fbd619762e91">
+		<http:listener doc:name="Listener"
+			doc:id="515e27d8-2381-4758-b71d-e88e11e04235" config-ref="HTTP_Listener_config"
+			path="test" />
+		<anypoint-mq:publish doc:name="publish-to-source-queue"
+			doc:id="476cec7c-459c-48dc-8e27-4242187995a1" config-ref="Anypoint_MQ_Config"
+			destination="source-queue" />
+	
+</flow>
+
+</mule>
